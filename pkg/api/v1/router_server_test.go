@@ -416,6 +416,51 @@ func TestIntegrationServerList(t *testing.T) {
 			false,
 			"",
 		},
+		{
+			"search for devices by attributes that have a type like clo",
+			&hollow.ServerListParams{
+				AttributeListParams: []hollow.AttributeListParams{
+					{
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						LikeValue: "clo",
+					},
+				},
+			},
+			[]string{dbtools.FixtureNemo.ID, dbtools.FixtureMarlin.ID},
+			false,
+			"",
+		},
+		{
+			"search for devices by attributes that have a type like %lo%",
+			&hollow.ServerListParams{
+				AttributeListParams: []hollow.AttributeListParams{
+					{
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						LikeValue: "%lo%",
+					},
+				},
+			},
+			[]string{dbtools.FixtureNemo.ID, dbtools.FixtureMarlin.ID},
+			false,
+			"",
+		},
+		{
+			"search for devices by attributes that have a type like lo",
+			&hollow.ServerListParams{
+				AttributeListParams: []hollow.AttributeListParams{
+					{
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						LikeValue: "lo",
+					},
+				},
+			},
+			[]string{},
+			false,
+			"",
+		},
 	}
 
 	boil.DebugMode = true
