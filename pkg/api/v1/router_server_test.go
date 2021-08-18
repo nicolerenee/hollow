@@ -50,9 +50,10 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:     dbtools.FixtureNamespaceMetadata,
-						Keys:          []string{"age"},
-						LessThanValue: 7,
+						Namespace: dbtools.FixtureNamespaceMetadata,
+						Keys:      []string{"age"},
+						Operator:  hollow.TypeLessThan,
+						Value:     "7",
 					},
 				},
 			},
@@ -65,9 +66,10 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:        dbtools.FixtureNamespaceMetadata,
-						Keys:             []string{"age"},
-						GreaterThanValue: 11,
+						Namespace: dbtools.FixtureNamespaceMetadata,
+						Keys:      []string{"age"},
+						Operator:  hollow.TypeGreaterThan,
+						Value:     "11",
 					},
 				},
 				FacilityCode: "Ocean",
@@ -90,14 +92,16 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceOtherdata,
-						Keys:       []string{"type"},
-						EqualValue: "blue-tang",
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						Operator:  hollow.TypeEqual,
+						Value:     "blue-tang",
 					},
 					{
-						Namespace:  dbtools.FixtureNamespaceMetadata,
-						Keys:       []string{"location"},
-						EqualValue: "East Australian Current",
+						Namespace: dbtools.FixtureNamespaceMetadata,
+						Keys:      []string{"location"},
+						Operator:  hollow.TypeEqual,
+						Value:     "East Australian Current",
 					},
 				},
 			},
@@ -110,9 +114,10 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceOtherdata,
-						Keys:       []string{"nested", "tag"},
-						EqualValue: "finding-nemo",
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"nested", "tag"},
+						Operator:  hollow.TypeEqual,
+						Value:     "finding-nemo",
 					},
 				},
 			},
@@ -125,9 +130,10 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:        dbtools.FixtureNamespaceOtherdata,
-						Keys:             []string{"nested", "number"},
-						GreaterThanValue: 1,
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"nested", "number"},
+						Operator:  hollow.TypeGreaterThan,
+						Value:     "1",
 					},
 				},
 			},
@@ -156,16 +162,18 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceOtherdata,
-						Keys:       []string{"type"},
-						EqualValue: "clown",
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						Operator:  hollow.TypeEqual,
+						Value:     "clown",
 					},
 				},
 				VersionedAttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceVersioned,
-						Keys:       []string{"name"},
-						EqualValue: "new",
+						Namespace: dbtools.FixtureNamespaceVersioned,
+						Keys:      []string{"name"},
+						Operator:  hollow.TypeEqual,
+						Value:     "new",
 					},
 				},
 			},
@@ -178,16 +186,18 @@ func TestIntegrationServerList(t *testing.T) {
 			&hollow.ServerListParams{
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceOtherdata,
-						Keys:       []string{"type"},
-						EqualValue: "clown",
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						Operator:  hollow.TypeEqual,
+						Value:     "clown",
 					},
 				},
 				VersionedAttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceVersioned,
-						Keys:       []string{"name"},
-						EqualValue: "old",
+						Namespace: dbtools.FixtureNamespaceVersioned,
+						Keys:      []string{"name"},
+						Operator:  hollow.TypeEqual,
+						Value:     "old",
 					},
 				},
 			},
@@ -244,9 +254,10 @@ func TestIntegrationServerList(t *testing.T) {
 				},
 				VersionedAttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceVersioned,
-						Keys:       []string{"name"},
-						EqualValue: "new",
+						Namespace: dbtools.FixtureNamespaceVersioned,
+						Keys:      []string{"name"},
+						Operator:  hollow.TypeEqual,
+						Value:     "new",
 					},
 				},
 			},
@@ -265,9 +276,10 @@ func TestIntegrationServerList(t *testing.T) {
 				},
 				VersionedAttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceVersioned,
-						Keys:       []string{"name"},
-						EqualValue: "new",
+						Namespace: dbtools.FixtureNamespaceVersioned,
+						Keys:      []string{"name"},
+						Operator:  hollow.TypeEqual,
+						Value:     "new",
 					},
 				},
 			},
@@ -283,9 +295,10 @@ func TestIntegrationServerList(t *testing.T) {
 						Model: "Normal Fin",
 						VersionedAttributeListParams: []hollow.AttributeListParams{
 							{
-								Namespace:  dbtools.FixtureNamespaceVersioned,
-								Keys:       []string{"something"},
-								EqualValue: "cool",
+								Namespace: dbtools.FixtureNamespaceVersioned,
+								Keys:      []string{"something"},
+								Operator:  hollow.TypeEqual,
+								Value:     "cool",
 							},
 						},
 					},
@@ -303,18 +316,20 @@ func TestIntegrationServerList(t *testing.T) {
 						Model: "Normal Fin",
 						VersionedAttributeListParams: []hollow.AttributeListParams{
 							{
-								Namespace:  dbtools.FixtureNamespaceVersioned,
-								Keys:       []string{"something"},
-								EqualValue: "cool",
+								Namespace: dbtools.FixtureNamespaceVersioned,
+								Keys:      []string{"something"},
+								Operator:  hollow.TypeEqual,
+								Value:     "cool",
 							},
 						},
 					},
 				},
 				AttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceOtherdata,
-						Keys:       []string{"type"},
-						EqualValue: "clown",
+						Namespace: dbtools.FixtureNamespaceOtherdata,
+						Keys:      []string{"type"},
+						Operator:  hollow.TypeEqual,
+						Value:     "clown",
 					},
 				},
 			},
@@ -330,18 +345,20 @@ func TestIntegrationServerList(t *testing.T) {
 						Model: "A Lucky Fin",
 						VersionedAttributeListParams: []hollow.AttributeListParams{
 							{
-								Namespace:  dbtools.FixtureNamespaceVersioned,
-								Keys:       []string{"something"},
-								EqualValue: "cool",
+								Namespace: dbtools.FixtureNamespaceVersioned,
+								Keys:      []string{"something"},
+								Operator:  hollow.TypeEqual,
+								Value:     "cool",
 							},
 						},
 					},
 				},
 				VersionedAttributeListParams: []hollow.AttributeListParams{
 					{
-						Namespace:  dbtools.FixtureNamespaceVersioned,
-						Keys:       []string{"name"},
-						EqualValue: "old",
+						Namespace: dbtools.FixtureNamespaceVersioned,
+						Keys:      []string{"name"},
+						Operator:  hollow.TypeEqual,
+						Value:     "old",
 					},
 				},
 			},
@@ -423,7 +440,8 @@ func TestIntegrationServerList(t *testing.T) {
 					{
 						Namespace: dbtools.FixtureNamespaceOtherdata,
 						Keys:      []string{"type"},
-						LikeValue: "clo",
+						Operator:  hollow.TypeLike,
+						Value:     "clo",
 					},
 				},
 			},
@@ -438,7 +456,8 @@ func TestIntegrationServerList(t *testing.T) {
 					{
 						Namespace: dbtools.FixtureNamespaceOtherdata,
 						Keys:      []string{"type"},
-						LikeValue: "%lo%",
+						Operator:  hollow.TypeLike,
+						Value:     "%lo%",
 					},
 				},
 			},
@@ -453,7 +472,8 @@ func TestIntegrationServerList(t *testing.T) {
 					{
 						Namespace: dbtools.FixtureNamespaceOtherdata,
 						Keys:      []string{"type"},
-						LikeValue: "lo",
+						Operator:  hollow.TypeLike,
+						Value:     "lo",
 					},
 				},
 			},
